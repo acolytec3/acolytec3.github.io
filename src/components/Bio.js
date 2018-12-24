@@ -18,7 +18,7 @@ class Bio extends React.Component {
       >
         <img
           src={profilePic}
-          alt={`Anand Raj`}
+          alt={`acolytec3`}
           style={{
             marginRight: rhythm(1 / 2),
             marginBottom: 0,
@@ -27,11 +27,7 @@ class Bio extends React.Component {
             height: rhythm(2),
           }}
         />
-        <p>
-          Personal blog by <a href="https://twitter.com/anamritraj" target="_blank">Anand Raj</a>.
-          <br></br>
-          I learn by breaking stuff (mostly code).
-        </p>
+      Just some stuff
       </div>
     )
   }

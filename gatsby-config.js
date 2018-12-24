@@ -1,15 +1,15 @@
 module.exports = {
   siteMetadata: {
-    title: 'anamritraj.tech',
-    author: 'Anand Raj',
+    title: 'Acolytec3.github.io',
+    author: 'Acolytec3',
     description:
-      'Personal blog by Anand Raj. Learning by doing.',
-    siteUrl: 'https://anamritraj.tech',
+      'Stuff.',
+    siteUrl: 'https://acolytec3.github.io',
     social: {
-      twitter: '@anamritraj',
+      twitter: '',
     },
   },
-  pathPrefix: '/',
+  pathPrefix: '/acolytec3.github.io',
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
@@ -34,6 +34,7 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
+          'gatsby-remark-autolink-headers',
           {
             resolve: 'gatsby-remark-prismjs',
             options: {
@@ -46,19 +47,13 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: ``,
-      },
-    },
     `gatsby-plugin-feed`,
+    `gatsby-plugin-sitemap`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `anamritraj.tech`,
-        short_name: `anamritraj.tech`,
+        name: `acolytec3`,
+        short_name: `acolytec3`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#d23636`,
@@ -73,5 +68,6 @@ module.exports = {
         pathToConfigModule: 'src/utils/typography',
       },
     },
+    'gatsby-plugin-offline'
   ],
 }
