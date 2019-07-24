@@ -70,7 +70,14 @@ const query = `{
 
   axios.post(githubUrl, {query: query}, {headers: oauth})
   .then(function (response) {
-    fs.writeFileSync('./src/pages/gitActivity.json',JSON.stringify(response.data, null, 4))
+    var result = {
+      'repositoriesContributedTo': response.data.data.user.repositoriesContributedTo,
+      'contributions':response.data.data.user.contributionsCollection.pullRequestContributionsByRepository,
+      'ownedRepositories':response.data.data.user.repositories
+    }
+    console.log(result)
+    console.log(response.data.data)
+    fs.writeFileSync('./src/pages/gitActivity.json',JSON.stringify(result, null, 4))
   })
   .catch(function (error) {
     // On error, print the error
