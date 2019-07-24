@@ -7,25 +7,22 @@ export default () => (
             query {
                 allPagesJson {
                     nodes {
-                        data {
-                            user {
-                                repositoriesContributedTo {
-                                    nodes {
-                                        description
-                                        name
-                                        url
-                                    }
-                                }
-                            }
+                      repositoriesContributedTo {
+                        nodes {
+                          description
+                          name
+                          url
                         }
+                      }
                     }
+                  }
                 }
-            }
+                
         `}
     render={data => (
             <div>
-            <h2>Project Name <a href={data.allPagesJson.nodes[0].data.user.repositoriesContributedTo.nodes[0].url}>{data.allPagesJson.nodes[0].data.user.repositoriesContributedTo.nodes[0].name}</a></h2>
-            {data.allPagesJson.nodes[0].data.user.repositoriesContributedTo.nodes[0].description}
+            <h2>Project Name <a href={data.allPagesJson.nodes[0].repositoriesContributedTo.nodes[0].url}>{data.allPagesJson.nodes[0].repositoriesContributedTo.nodes[0].name}</a></h2>
+            {data.allPagesJson.nodes[0].repositoriesContributedTo.nodes[0].description}
              </div>
     )}
     />
