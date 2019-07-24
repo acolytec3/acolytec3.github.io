@@ -12,6 +12,13 @@ const query = `{
     user(login: "acolytec3") {
       bio
       avatarUrl
+      repositoriesContributedTo(first: 2, orderBy: {field: UPDATED_AT, direction: DESC}) {
+        nodes {
+          name
+          description
+          url
+        }
+      }
       contributionsCollection {
         pullRequestContributionsByRepository {
           contributions(first: 100) {

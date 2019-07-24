@@ -7,6 +7,7 @@ import config from '../../config';
 import Footer from '../components/Footer';
 import SocialLinks from '../components/SocialLinks';
 import Header from '../components/Header';
+import Repository from '../components/Repository';
 
 import ipad from '../assets/images/ipad.png';
 import demoImage1 from '../assets/images/demo-image-01.jpg';
@@ -52,7 +53,7 @@ const IndexPage = () => (
       </div>
     </section>
 
-    <section id="projects" className="projects-section bg-light">
+    <section id="activity" className="projects-section bg-light">
       <div className="container">
         <div className="row align-items-center no-gutters mb-4 mb-lg-5">
           <div className="col-xl-8 col-lg-7">
@@ -60,12 +61,7 @@ const IndexPage = () => (
           </div>
           <div className="col-xl-4 col-lg-5">
             <div className="featured-text text-center text-lg-left">
-              <h4>Shoreline</h4>
-              <p className="text-black-50 mb-0">
-                Grayscale is open source and MIT licensed. This means you can
-                use it for any project - even commercial projects! Download it,
-                customize it, and publish your website!
-              </p>
+              <Repository />
             </div>
           </div>
         </div>
