@@ -6,7 +6,6 @@ import Scroll from '../components/Scroll';
 import config from '../../config';
 import Footer from '../components/Footer';
 import SocialLinks from '../components/SocialLinks';
-import Subscribe from '../components/Subscribe';
 import Header from '../components/Header';
 
 import ipad from '../assets/images/ipad.png';
@@ -113,8 +112,6 @@ const IndexPage = () => (
         </div>
       </div>
     </section>
-
-    <Subscribe />
 
     <SocialLinks />
     <Footer />
