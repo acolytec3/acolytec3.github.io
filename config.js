@@ -10,7 +10,7 @@ module.exports = {
   pathPrefix: `/portfolio/`, 
   heading: 'Portfolio',
   subHeading: 'Part-time OSS wannabe. Full time student of C^3  ',
-
+  ETH: 'acolytec3.gitcoin.eth',
   // social
   socialLinks: [
     {
