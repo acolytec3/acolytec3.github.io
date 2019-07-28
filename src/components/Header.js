@@ -61,14 +61,14 @@ export default class Header extends Component {
             id="navbarResponsive"
           >
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
+            <li className="nav-item">
                 <Scroll
                   onClick={_ => this.toggleMenu(!openMenu)}
                   type="id"
-                  element="about"
+                  element="projects"
                 >
-                  <a className="nav-link" href="#about">
-                    About
+                  <a className="nav-link" href="#projects">
+                    My Projects
                   </a>
                 </Scroll>
               </li>
@@ -79,7 +79,7 @@ export default class Header extends Component {
                   element="activity"
                 >
                   <a className="nav-link" href="#projects">
-                    Latest Activity
+                    Latest Contributions
                   </a>
                 </Scroll>
               </li>

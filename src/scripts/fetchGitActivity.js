@@ -8,71 +8,70 @@ const token = process.env.GRAPHQL_TOKEN;
 
 const oauth = {Authorization: 'bearer ' + token}
 
-const query = `{
-    user(login: "acolytec3") {
-      bio
-      avatarUrl
-      repositoriesContributedTo(first: 2, orderBy: {field: UPDATED_AT, direction: DESC}) {
-        nodes {
-          name
-          description
-          url
-        }
+const query = `
+{
+  user(login: "acolytec3") {
+    bio
+    avatarUrl
+    repositoriesContributedTo(first: 2, orderBy: {field: UPDATED_AT, direction: DESC}) {
+      nodes {
+        name
+        description
+        url
+        openGraphImageUrl
       }
-      contributionsCollection {
-        pullRequestContributionsByRepository {
-          contributions(first: 100) {
-            nodes {
-              pullRequest {
-                title
-                body
-              }
-            }
-          }
-          repository {
-            name
+    }
+    contributionsCollection {
+      pullRequestContributions(first: 100) {
+        nodes {
+          pullRequest {
+            title
+            body
             url
-            description
-          }
-        }
-      }
-      repositories(first: 100, privacy: PUBLIC) {
-        nodes {
-          name
-          url
-          isFork
-          stargazers {
-            totalCount
-          }
-          owner {
-            login
-          }
-          forks {
-            totalCount
-          }
-          homepageUrl
-          description
-          repositoryTopics(first: 100) {
-            nodes {
-              topic {
-                name
-              }
+            repository {
+              name
+              url
             }
           }
-        }
-        pageInfo {
-          hasNextPage
-          endCursor
         }
       }
     }
-  }`;
+    repositories(first: 100, privacy: PUBLIC, orderBy: {field: UPDATED_AT, direction: DESC}) {
+      nodes {
+        name
+        url
+        isFork
+        stargazers {
+          totalCount
+        }
+        forks {
+          totalCount
+        }
+        homepageUrl
+        description
+        repositoryTopics(first: 100) {
+          nodes {
+            topic {
+              name
+            }
+          }
+        }
+      }
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+    }
+  }
+}
+
+`;
 
   axios.post(githubUrl, {query: query}, {headers: oauth})
   .then(function (response) {
     var result = {
       'repositoriesContributedTo': response.data.data.user.repositoriesContributedTo,
-      'contributions':response.data.data.user.contributionsCollection.pullRequestContributionsByRepository,
+      'contributions':response.data.data.user.contributionsCollection.pullRequestContributions,
       'ownedRepositories':response.data.data.user.repositories
     }
     console.log(result)

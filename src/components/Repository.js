@@ -7,7 +7,7 @@ export default () => (
             query {
                 allPagesJson {
                     nodes {
-                      repositoriesContributedTo {
+                      ownedRepositories {
                         nodes {
                           description
                           name
@@ -16,14 +16,18 @@ export default () => (
                       }
                     }
                   }
-                }
-                
+                }       
         `}
+    
     render={data => (
-            <div>
-            <h2>Project Name <a href={data.allPagesJson.nodes[0].repositoriesContributedTo.nodes[0].url}>{data.allPagesJson.nodes[0].repositoriesContributedTo.nodes[0].name}</a></h2>
-            {data.allPagesJson.nodes[0].repositoriesContributedTo.nodes[0].description}
-             </div>
+      <div className="row align-items-center">
+        {data.allPagesJson.nodes[0].ownedRepositories.nodes.map(node => {
+         return <div className="col-md-3">
+            <h3><a href={node.url}>{node.name}</a></h3>
+            <p>{node.description}</p>
+          </div>
+        })} 
+        </div>                       
     )}
     />
 )
